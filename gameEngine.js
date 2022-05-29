@@ -79,7 +79,9 @@ function spawnP2() {
 function checkIfSame() {
     if (player1.name == player2.name) {
         spawnP2();
-    } else {return;};
+    } else {
+        return;
+    };
 };
 
 function attack(attacker, reciever, move) {
@@ -204,3 +206,4 @@ setInterval(function() {
             document.getElementById('descriptionBox').style.visibility="hidden"
         };
 }, 16);
+
