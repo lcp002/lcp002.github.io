@@ -2,34 +2,34 @@
 let characterList = [
     [
         "Lando", "lando.png", 100, [
-            ["Tackle", 1, 5,],
-            ["Kick", 5, 10,],
-            ["Bite", 10, 50,],
-            ["Rage", 1, 100,],
+            ["Tackle", 1, 5, 1, 10,], //Move Name, Minimum Damage, Maximum Damage, Lower Miss Value, Higher Miss Value
+            ["Kick", 5, 10, 2, 10,],
+            ["Bite", 10, 50, 3, 10,],
+            ["Rage", 1, 100, 5, 10,],
         ],
     ],
     [
         "Lee", "lee.png", 100, [
-            ["Tackle", 1, 5,],
-            ["Kick", 5, 10,],
-            ["Bite", 10, 50,],
-            ["Rage", 1, 100,],
+            ["Tackle", 1, 5, 1, 10,],
+            ["Kick", 5, 10, 2, 10,],
+            ["Bite", 10, 50, 3, 10,],
+            ["Rage", 1, 100, 5, 10,],
         ],
     ],
     [
         "Shandra", "mom.png", 100, [
-            ["Tackle", 1, 5,],
-            ["Kick", 5, 10,],
-            ["Bite", 10, 50,],
-            ["Rage", 1, 100,],
+            ["Tackle", 1, 5, 1, 10,],
+            ["Kick", 5, 10, 2, 10,],
+            ["Bite", 10, 50, 3, 10,],
+            ["Rage", 1, 100, 5, 10,],
         ],
     ],
     [
         "Hayden", "hayden.png", 100, [
-            ["Tackle", 1, 5,],
-            ["Kick", 5, 10,],
-            ["Bite", 10, 50,],
-            ["Rage", 1, 100,],
+            ["Tackle", 1, 5, 1, 10,],
+            ["Kick", 5, 10, 2, 10,],
+            ["Bite", 10, 50, 3, 10,],
+            ["Rage", 1, 100, 5, 10,],
         ],
     ],
 ];
