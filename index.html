@@ -9,17 +9,25 @@
             .playerImg {
                 height: 300px;
                 width: 300px;
+                z-index: 1;
                 display: inline-block;
                 position: relative;
             }
             .computerImg {
                 height: 300px;
                 width: 300px;
+                z-index: 1;
                 display: inline-block;
                 position: relative;
             }
+            .playerAnimationImg, .computerAnimationImg {
+                height: 100%;
+                width: 100%;
+                display: inline-block;
+                position: absolute;
+            }
             .moveButton {
-                width: 24%;
+                width: 12.5%;
             }
             body {
                 background-image: url('prisonBars.png');
@@ -52,8 +60,14 @@
             <div style="position: absolute; left: 0px">
                 <img draggable=false src="" class="playerImg" id="playerSprite">
             </div>
+            <div style="width: 300px; height: 300px; position: absolute; left: 150px; display: inline-block">
+                <img draggable=false src="" class="playerAnimationImg" id="playerProjectile" style="visibility: hidden">
+            </div>
             <div style="position: absolute; right: 0px">
                 <img draggable=false src="" class="computerImg" id="computerSprite">
+            </div>
+            <div style="width: 300px; height: 300px; position: absolute; right: 150px; display: inline-block">
+                <img draggable=false src="" class="computerAnimationImg" id="computerProjectile" style="visibility: hidden">
             </div>
         </div>
         <div style="background-color: transparent; width: 1000px; height: 10px; margin-left: auto; margin-right: auto; position: relative">
@@ -64,13 +78,13 @@
                 <progress id="computerHealth" value="" max="" style="display: block; width: 290px"></progress>
             </div>
         </div>
-        <div style="width: 500px; position: relative; margin-top: 1%; margin-left: auto; margin-right: auto; background-color: transparent; text-align: center">
+        <div style="width: 1000px; position: relative; margin-top: 1%; margin-left: auto; margin-right: auto; background-color: transparent; text-align: center">
             <button id="move1Button" class="moveButton" onclick="hideButtons(), attack(player1, player2, player1.moves[0]), setTimeout(attack, 1500, player2, player1, player2.moves[Math.floor(Math.random() * 4)])"></button>
             <button id="move2Button" class="moveButton" onclick="hideButtons(), attack(player1, player2, player1.moves[1]), setTimeout(attack, 1500, player2, player1, player2.moves[Math.floor(Math.random() * 4)])"></button>
             <button id="move3Button" class="moveButton" onclick="hideButtons(), attack(player1, player2, player1.moves[2]), setTimeout(attack, 1500, player2, player1, player2.moves[Math.floor(Math.random() * 4)])"></button>
             <button id="move4Button" class="moveButton" onclick="hideButtons(), attack(player1, player2, player1.moves[3]), setTimeout(attack, 1500, player2, player1, player2.moves[Math.floor(Math.random() * 4)])"></button>
         </div>
-        <div id="gameInfoBox" style="width: 500px; position: relative; margin-top: 1%; margin-left: auto; margin-right: auto; background-color: white; border: solid; border-color: black; text-align: center"></div>
-        <div id="descriptionBox" style="width: 500px; position: relative; margin-top: 1%; margin-left: auto; margin-right: auto; background-color: white; border-color: black; text-align: center"></div>
+        <div id="gameInfoBox" style="width: 525px; position: relative; margin-top: 1%; margin-left: auto; margin-right: auto; background-color: white; border: solid; border-color: black; text-align: center"></div>
+        <div id="descriptionBox" style="width: 525px; position: relative; margin-top: 1%; margin-left: auto; margin-right: auto; background-color: white; border-color: black; text-align: center"></div>
     </body>
 </html>
