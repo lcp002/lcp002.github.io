@@ -2,34 +2,42 @@
 let characterList = [
     [
         "Lando", "lando.png", 100, [
-            ["Tackle", 1, 5, 1, 10,], //Move Name, Minimum Damage, Maximum Damage, Lower Miss Value, Higher Miss Value
-            ["Kick", 5, 10, 2, 10,],
-            ["Bite", 10, 50, 3, 10,],
-            ["Rage", 1, 100, 5, 10,],
+            ["Tackle", 1, 5, 0, 100,], //Move Name, Minimum Damage, Maximum Damage, Lower Miss Value, Higher Miss Value
+            ["Kick", 5, 10, 0, 100,],
+            ["Bite", 10, 50, 5, 100,],
+            ["Rage", 1, 100, 10, 100,],
         ],
     ],
     [
         "Lee", "lee.png", 100, [
-            ["Tackle", 1, 5, 1, 10,],
-            ["Kick", 5, 10, 2, 10,],
-            ["Bite", 10, 50, 3, 10,],
-            ["Rage", 1, 100, 5, 10,],
+            ["Tackle", 1, 5, 0, 100,],
+            ["Kick", 5, 10, 0, 100,],
+            ["Bite", 10, 50, 5, 100,],
+            ["Rage", 1, 100, 10, 100,],
         ],
     ],
     [
         "Shandra", "mom.png", 100, [
-            ["Tackle", 1, 5, 1, 10,],
-            ["Kick", 5, 10, 2, 10,],
-            ["Bite", 10, 50, 3, 10,],
-            ["Rage", 1, 100, 5, 10,],
+            ["Tackle", 1, 5, 0, 100,],
+            ["Kick", 5, 10, 0, 100,],
+            ["Bite", 10, 50, 5, 100,],
+            ["Rage", 1, 100, 10, 100,],
         ],
     ],
     [
         "Hayden", "hayden.png", 100, [
-            ["Tackle", 1, 5, 1, 10,],
-            ["Kick", 5, 10, 2, 10,],
-            ["Bite", 10, 50, 3, 10,],
-            ["Rage", 1, 100, 5, 10,],
+            ["Tackle", 1, 5, 0, 100,],
+            ["Kick", 5, 10, 0, 100,],
+            ["Bite", 10, 50, 5, 100,],
+            ["Rage", 1, 100, 10, 100,],
+        ],
+    ],
+    [
+        "Wheaton", "wheaton.png", 100, [
+            ["Tackle", 1, 5, 0, 100,],
+            ["Kick", 5, 10, 0, 100,],
+            ["Bite", 10, 50, 5, 100,],
+            ["Rage", 1, 100, 10, 100,],
         ],
     ],
 ];
@@ -92,6 +100,9 @@ function attack(attacker, reciever, move) {
         gameOver=true;
         return;
     }
+
+    animateMove(attacker, reciever, move);
+
     let damage = Math.floor(Math.random() * move[2]) + move[1];
     while (damage > move[2]) {
         damage = Math.floor(Math.random() * move[2]) + move[1];
@@ -148,6 +159,11 @@ setInterval(function() {
         document.getElementById('move2Button').style.display="none";
         document.getElementById('move3Button').style.display="none";
         document.getElementById('move4Button').style.display="none";
+        if (player1.hp <= 0) {
+            $('#playerSprite').animate({opacity: '0'}, 'slow');
+        } else if (player2.hp <= 0) {
+            $('#computerSprite').animate({opacity: '0'}, 'slow');
+        }
     };
 }, 16);
 
@@ -206,4 +222,66 @@ setInterval(function() {
             document.getElementById('descriptionBox').style.visibility="hidden"
         };
 }, 16);
+
+function animateMove(attacker, reciever, move) {
+    let direction = 1;
+    let animationDirection = 1;
+    let attackSide = null;
+    let receiveSide = null;
+    let moveDistance = 0;
+    switch (move[0]) {
+        case 'Tackle':
+            moveDistance=215;
+            if (attacker.name == player1.name) {
+                direction = direction; 
+                attackSide = '#playerSprite'; 
+                receiveSide = '#computerSprite';
+            } else if (attacker.name == player2.name) {
+                direction *= -1; 
+                attackSide = '#computerSprite'; 
+                receiveSide = '#playerSprite';
+            };
+            moveDistance *= direction;
+            moveDistance = String(moveDistance+'%');
+            $(attackSide).animate({left: moveDistance});
+            $(attackSide).animate({left: "0%"});
+            $(receiveSide).animate({height: '275px', width: '275px', top: '25px'});
+            $(receiveSide).animate({height: '300px', width: '300px', top: '0px'});
+            break;
+
+        case 'Kick':
+            moveDistance=215;
+            if (attacker.name == player1.name) {direction = direction; attackSide = '#playerSprite'; receiveSide = '#computerSprite';} else {direction *= -1; attackSide = '#computerSprite'; receiveSide = '#playerSprite'};
+            moveDistance *= direction;
+            moveDistance = String(moveDistance+'%');
+            $(attackSide).animate({left: moveDistance});
+            $(attackSide).animate({left: "0%"});
+            $(receiveSide).animate({height: '275px', width: '275px', top: '25px'});
+            $(receiveSide).animate({height: '300px', width: '300px', top: '0px'});
+            break;
+
+        case 'Bite':
+            moveDistance=215;
+            if (attacker.name == player1.name) {direction = direction; attackSide = '#playerSprite'; receiveSide = '#computerSprite';} else {direction *= -1; attackSide = '#computerSprite'; receiveSide = '#playerSprite'};
+            moveDistance *= direction;
+            moveDistance = String(moveDistance+'%');
+            $(attackSide).animate({left: moveDistance});
+            $(attackSide).animate({left: "0%"});
+            $(receiveSide).animate({height: '275px', width: '275px', top: '25px'});
+            $(receiveSide).animate({height: '300px', width: '300px', top: '0px'});
+            break;
+
+        case 'Rage':
+            moveDistance=215;
+            if (attacker.name == player1.name) {direction = direction; attackSide = '#playerSprite'; receiveSide = '#computerSprite';} else {direction *= -1; attackSide = '#computerSprite'; receiveSide = '#playerSprite'};
+            moveDistance *= direction;
+            moveDistance = String(moveDistance+'%');
+            $(attackSide).animate({left: moveDistance});
+            $(attackSide).animate({left: "0%"});
+            $(receiveSide).animate({height: '275px', width: '275px', top: '25px'});
+            $(receiveSide).animate({height: '300px', width: '300px', top: '0px'});
+            break;
+
+        };
+}
 
